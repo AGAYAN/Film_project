@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Watch Movie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Изменено для вертикального выравнивания */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        video {
+            width: 80%;  /* Устанавливаем ширину видео в 80% от ширины экрана */
+            height: 80%; /* Устанавливаем высоту видео в 80% от высоты экрана */
+            max-width: 1200px; /* Максимальная ширина видео */
+            max-height: 800px; /* Максимальная высота видео */
+            background-color: #000;
+        }
+        button {
+            margin-bottom: 20px; /* Отступ между кнопкой и видео */
+            padding: 10px 20px;
+            background-color: #77aaff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px; /* Закругленные углы */
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button onclick="goBack()">Назад</button>
+</div>
+<video controls>
+    <source th:src="@{'/api/movies/' + ${movie}}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    function goBack() {
+        window.history.back(); // Возвращает на предыдущую страницу
+    }
+</script>
+</body>
+</html>
